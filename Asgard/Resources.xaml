@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:Asgard.Converters">
+    <converters:ObjectToBoolConverter x:Key="ObjectToBoolConverter" />
+    <converters:ObjectToVisibilityConverter x:Key="ObjectToVisibilityConverter" />
+</ResourceDictionary>
