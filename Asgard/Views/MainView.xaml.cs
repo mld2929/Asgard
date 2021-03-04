@@ -18,7 +18,7 @@ namespace Asgard.Views
         #region Methods
 
         private void onKeyDown(object sender, KeyEventArgs e) {
-            if (e.Key == Key.Separator)
+            if (e.Key == Key.X && e.IsRepeat)
                 MainViewModel.OpenDebugCommand.Execute(null);
         }
 

@@ -7,29 +7,28 @@ namespace Asgard.ViewModels
         #region Constructors
 
         internal GameInfoViewModel(IGameWrapper game) {
-            ProcessId = game.ID;
-            getPlayerNameAsync(game);
+            ProcessId = $"ID: {game.ID}";
+            ActivePlayer = appendIfNotEmpty("Player: ", game.PlayerName);
+            Realm = appendIfNotEmpty("Realm: ", game.CurrentRealm);
+            Account = appendIfNotEmpty("Account: ", game.CurrentAccount);
         }
 
         #endregion Constructors
 
         #region Methods
 
-        private async void getPlayerNameAsync(IGameWrapper game) {
-            ActivePlayerName = (await game.ObjectManager.GetPlayerAsync()
-                                          .ConfigureAwait(false)).Name;
-
-            OnPropertyChanged(nameof(ActivePlayerName));
+        private static string appendIfNotEmpty(string description, string data) {
+            return string.IsNullOrWhiteSpace(data) ? data : description + data;
         }
 
         #endregion Methods
 
         #region Properties
 
-        // todo: access name w/o code execution
-        public string ActivePlayerName { get; private set; }
-
-        public int ProcessId { get; }
+        public string Account { get; }
+        public string ActivePlayer { get; }
+        public string ProcessId { get; }
+        public string Realm { get; }
 
         #endregion Properties
     }

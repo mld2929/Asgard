@@ -12,12 +12,13 @@
     <Window.Resources>
         <DataTemplate x:Key="GameDataTemplate" DataType="viewModels:GameInfoViewModel">
             <StackPanel>
-                <TextBlock Text="ID:" />
                 <TextBlock Text="{Binding ProcessId}" />
-                <TextBlock Text="Active player:"
-                           Visibility="{Binding ActivePlayerName, Converter={StaticResource ObjectToVisibilityConverter}}" />
-                <TextBlock Text="{Binding ActivePlayerName}"
-                           Visibility="{Binding ActivePlayerName, Converter={StaticResource ObjectToVisibilityConverter}}" />
+                <TextBlock Text="{Binding Realm}"
+                           Visibility="{Binding Realm, Converter={StaticResource ObjectToVisibilityConverter}}" />
+                <TextBlock Text="{Binding Account}"
+                           Visibility="{Binding Account, Converter={StaticResource ObjectToVisibilityConverter}}" />
+                <TextBlock Text="{Binding ActivePlayer}"
+                           Visibility="{Binding ActivePlayer, Converter={StaticResource ObjectToVisibilityConverter}}" />
             </StackPanel>
         </DataTemplate>
         <converters:GameWrapperToGameInfoConverter x:Key="GameWrapperToGameInfoConverter" />
